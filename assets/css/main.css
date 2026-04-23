@@ -1468,7 +1468,30 @@ textarea {
   font-size: 22px;
 }
 
+.agree_policy {
+  margin-top: 10px;
+}
+.agree_policy label {
+  display: flex;
+  gap: 10px;
+}
 
+.agree_policy label input[type="checkbox"] {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+
+
+}
+
+.agree_policy label span {
+  font-size: 10px;
+  color: lightgray;
+  font-weight: 400;
+  vertical-align: middle;
+  text-align: start;
+}
 
 .image-szap:hover {
   box-shadow: 0 0 3px gray;
