@@ -9,7 +9,7 @@
     <div class="form-group " id='default-suggestions'>
       <div class="title" style="color:lightgray; padding-bottom:1em;">запросить предложение</div>
 
-      <input type="tel" class="form-control" id="input_contact" placeholder="ваш телефон или email"
+      <input type="tel" class="form-control" id="input_contact" placeholder="ваш телефон или ваша почта"
         name="phone" required autocomplete="tel"
         onchange="$('#btnSend').addClass('btn-primary');$('#btnSend').removeClass('btn-outline-primary');">
       <input class="typeahead form-control" type="text" placeholder="укажите..." id="select">
@@ -19,8 +19,21 @@
       <textarea id="request_comment" class="form-control hidden" placeholder="комментарий"
         rows="3"></textarea>
     </div>
-    <input id="btnSend" onclick="send_request( $('#select').val(), $('#input_contact').val(), $('#request_comment').val());" class="btn btn-sm btn-outline-primary" type="button"
-      value="отправить">
+  <div class="agree_policy">
+    <label>
+      <input type="checkbox" id="policy_check">
+      <span>
+        Нажимая кнопку, Вы даете полное <a href="../assets/docs/2. Согласие на обработку персональных данных.pdf">согласие
+          на обработку персональных данных</a> в соответствии с <a
+          href="../politika-konfidentsialnosti.html">политикой
+          конфиденциальности</a>.
+      </span>
+    </label>
+  </div>
+  
+  <input id="btnSend" 
+    onclick="if($('#policy_check').is(':checked')){ send_request($('#select').val(), $('#input_contact').val(), $('#request_comment').val()); } else { alert('Пожалуйста, подтвердите согласие на обработку персональных данных'); }" 
+    class="btn btn-sm btn-outline-primary" type="button" value="отправить">
 
     <!-- script для typeahaed  -->
     <script>
